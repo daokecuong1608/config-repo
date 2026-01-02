@@ -1,0 +1,26 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: socket-service
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: socket-service-group
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+
+app:
+  kafka:
+    topic:
+      message-created: chat.message.created
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
