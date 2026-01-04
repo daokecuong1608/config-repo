@@ -1,0 +1,36 @@
+server:
+  port: 8085
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/chatdb
+    redis:
+      host: localhost
+      port: 6379
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-service-group
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: your.package.YourMessageDto
+        # hoặc dùng type headers (mặc định) tùy bạn:
+        # spring.json.use.type.headers: false
+
+app:
+  kafka:
+    topic:
+      message-created: chat.message.created
+  redis:
+    presence-prefix: "online:"
+    unread-prefix: "unread:"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
