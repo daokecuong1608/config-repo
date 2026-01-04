@@ -17,10 +17,18 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: "*"
-        spring.json.value.default.type: your.package.YourMessageDto
-        # hoặc dùng type headers (mặc định) tùy bạn:
-        # spring.json.use.type.headers: false
+        # delegate thật sự
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+
+        # ✅ bỏ qua __TypeId__ (đề phòng record cũ/khác package)
+        spring.json.use.type.headers: false
+
+        # ✅ ép deserialize về class event đang dùng trong socket-service (starter-model)
+        spring.json.value.default.type: tn.cuongdk.chat.gateway.startermodel.dto.resquest.message_service.MessageCreatedEvent
+
+        # ✅ chỉ trust package của bạn (đừng dùng "*")
+        spring.json.trusted.packages: "tn.cuongdk.chat.*"
 
 app:
   kafka:
