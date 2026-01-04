@@ -24,7 +24,7 @@ spring:
         spring.json.use.type.headers: false
 
         # ✅ ép deserialize về class event đang dùng trong socket-service (starter-model)
-        spring.json.value.default.type: tn.cuongdk.chat.gateway.startermodel.dto.request.message_service.MessageCreatedEvent
+        spring.json.value.default.type: tn.cuongdk.chat.gateway.startermodel.dto.resquest.message_service
 
         # ✅ chỉ trust package của bạn (đừng dùng "*")
         spring.json.trusted.packages: "tn.cuongdk.chat.*"
