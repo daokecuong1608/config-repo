@@ -18,6 +18,17 @@ spring:
           uri: lb://chat-service
           predicates:
             - Path=/api/chats/**
+        
+        - id: message-service
+          uri: lb://message-service
+          predicates:
+            - Path=/api/messages/**
+
+        - id: socket-service
+          uri: lb://socket-service
+          predicates:
+            - Path=/ws/**
+
 
 eureka:
   client:
