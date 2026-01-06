@@ -38,6 +38,7 @@ app:
     presence-prefix: "online:"
     unread-prefix: "unread:"
     lastread-prefix: "last_read:"
+    active-room-prefix: "active_room:"
 
 eureka:
   client:
