@@ -37,6 +37,7 @@ app:
   redis:
     presence-prefix: "online:"
     unread-prefix: "unread:"
+    lastread-prefix: "last_read:"
 
 eureka:
   client:

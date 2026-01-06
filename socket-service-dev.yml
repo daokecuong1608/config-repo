@@ -40,6 +40,8 @@ app:
   redis:
     presence-prefix: "online:"
     presence-ttl-seconds: 90
+    active-room-prefix: "active_room:"
+    active-room-ttl-seconds: 90
 eureka:
   client:
     service-url:
