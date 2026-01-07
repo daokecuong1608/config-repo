@@ -1,0 +1,20 @@
+server:
+  port: 8086
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/chatdb
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+app:
+  minio:
+    endpoint: http://localhost:9000
+    accessKey: minioadmin
+    secretKet: minioadmin123
+    bucket: chat-media
+    publicBaseUrl: http://localhost:9000   # dùng khi cần build url
