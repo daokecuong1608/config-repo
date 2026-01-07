@@ -15,6 +15,6 @@ app:
   minio:
     endpoint: http://localhost:9000
     accessKey: minioadmin
-    secretKet: minioadmin123
+    secretKey: minioadmin123
     bucket: chat-media
     publicBaseUrl: http://localhost:9000   # dùng khi cần build url
