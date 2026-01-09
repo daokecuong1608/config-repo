@@ -6,15 +6,24 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/chatdb
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
 app:
   minio:
     endpoint: http://localhost:9000
     accessKey: minioadmin
     secretKey: minioadmin123
     bucket: chat-media
-    publicBaseUrl: http://localhost:9000   # dùng khi cần build url
+    thumbsPrefix: thumbs/
+
+  media:
+    max-size-bytes: 52428800 # 50MB
+    allowed-content-types: "image/jpeg,image/png,image/webp,video/mp4,audio/mpeg,application/pdf"
+
+  kafka:
+    enabled: true
+    topic:
+      media-uploaded: chat.media.uploaded
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
