@@ -2,3 +2,14 @@ logging:
   level:
     root: INFO
 
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # DEV: lấy 100% trace (prod thường 0.1)
+    export:
+      zipkin:
+        endpoint: http://localhost:9411/api/v2/spans
+
+  metrics:
+    tags:
+      application: ${spring.application.name}
