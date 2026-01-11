@@ -8,6 +8,11 @@ spring:
       port: 27017
       database: chatdb
 
+  cloud:
+    openfeign:
+      micrometer:
+        enable: true
+
   kafka:
     bootstrap-servers: localhost:9092
     producer:
@@ -15,6 +20,11 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring.json.add.type.headers: false
+    listener:
+      observation-enabled: true
+    template:
+      observation-enabled: true
+
 
 app:
   kafka:

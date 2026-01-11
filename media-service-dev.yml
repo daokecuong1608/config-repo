@@ -6,6 +6,11 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/chatdb
 
+  cloud:
+    openfeign:
+      micrometer:
+        enable: true
+
 app:
   minio:
     endpoint: http://localhost:9000

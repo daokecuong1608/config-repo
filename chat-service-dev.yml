@@ -9,6 +9,11 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/chatdb
 
+  cloud:
+    openfeign:
+      micrometer:
+        enable: true
+
 eureka:
   client:
     service-url:

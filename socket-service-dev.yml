@@ -9,6 +9,11 @@ spring:
       host: 127.0.0.1
       port: 6379
 
+  cloud:
+    openfeign:
+      micrometer:
+        enable: true
+
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -32,6 +37,10 @@ spring:
 
         # ✅ chỉ trust package của bạn (đừng dùng "*")
         spring.json.trusted.packages: "tn.cuongdk.chat.*"
+    listener:
+      observation-enabled: true
+    template:
+      observation-enabled: true
 
 app:
   kafka:
