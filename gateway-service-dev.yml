@@ -62,3 +62,7 @@ management:
       enabled: true
     readinessstate:
       enabled: true
+      
+app:
+  jwt:
+    secret: dsajkdhaskjdhakjdhqwiueyqweuiyqweuiyqweuiyqweuiyqweuiyqweuiyqweujkjhhjhgfdfghhertuithdfgkjhflkjhgjji
