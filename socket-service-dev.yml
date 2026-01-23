@@ -46,6 +46,9 @@ app:
   kafka:
     topic:
       message-created: chat.message.created
+      friend-request-created: chat.friend.request.created
+      friend-request-accepted: chat.friend.request.accepted
+      dm-room-created: chat.dm.room.created
   redis:
     presence-prefix: "online:"
     presence-ttl-seconds: 90
