@@ -24,6 +24,7 @@ spring:
       properties:
         spring.json.use.type.headers: false
         spring.json.trusted.packages: "tn.cuongdk.chat.*"
+        spring.json.value.default.type: tn.cuongdk.chat.chat_service.kafka.dto.FriendRequestAcceptedEvent
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
