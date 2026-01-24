@@ -46,11 +46,12 @@ spring:
             - Path=/api/messages/**
 
         - id: socket-service
-          uri: lb:ws://socket-service
+          uri: lb://socket-service   # ✅ dùng lb:// (HTTP)
           predicates:
             - Path=/ws/**
           metadata:
             websocket: true
+
 
         - id: notification-service
           uri: lb://notification-service
