@@ -46,7 +46,7 @@ spring:
             - Path=/api/messages/**
 
         - id: socket-service
-          uri: lb://socket-service
+          uri: lb:ws://socket-service
           predicates:
             - Path=/ws/**
           metadata:
