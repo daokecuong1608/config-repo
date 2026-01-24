@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: socket-service
+
   data:
     redis:
       host: 127.0.0.1
@@ -12,31 +13,16 @@ spring:
   cloud:
     openfeign:
       micrometer:
-        enable: true
+        enabled: true   # ✅ sửa enable -> enabled
 
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      group-id: socket-service-group
       auto-offset-reset: latest
+      # ✅ vì @KafkaListener nhận String json
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
-      # ✅ bọc deserializer để không chết vì SerializationException
-      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-
-      properties:
-        # delegate thật sự
-        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
-
-        # ✅ bỏ qua __TypeId__ (đề phòng record cũ/khác package)
-        spring.json.use.type.headers: false
-
-        # ✅ ép deserialize về class event đang dùng trong socket-service (starter-model)
-        spring.json.value.default.type: tn.cuongdk.chat.gateway.startermodel.dto.resquest.message_service.MessageCreatedEvent
-
-        # ✅ chỉ trust package của bạn (đừng dùng "*")
-        spring.json.trusted.packages: "tn.cuongdk.chat.*"
     listener:
       observation-enabled: true
     template:
@@ -49,11 +35,13 @@ app:
       friend-request-created: chat.friend.request.created
       friend-request-accepted: chat.friend.request.accepted
       dm-room-created: chat.dm.room.created
+
   redis:
     presence-prefix: "online:"
     presence-ttl-seconds: 90
     active-room-prefix: "active_room:"
     active-room-ttl-seconds: 90
+
 eureka:
   client:
     service-url:
@@ -70,7 +58,6 @@ management:
         http.server.requests: true
     tags:
       application: ${spring.application.name}
-
 
 jwt:
   secret: dsajkdhaskjdhakjdhqwiueyqweuiyqweuiyqweuiyqweuiyqweuiyqweuiyqweujkjhhjhgfdfghhertuithdfgkjhflkjhgjji
