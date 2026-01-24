@@ -49,6 +49,8 @@ spring:
           uri: lb://socket-service
           predicates:
             - Path=/ws/**
+          metadata:
+            websocket: true
 
         - id: notification-service
           uri: lb://notification-service
