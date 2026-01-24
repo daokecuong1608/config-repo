@@ -51,6 +51,8 @@ spring:
             - Path=/ws/**
           metadata:
             websocket: true
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
 
 
         - id: notification-service
