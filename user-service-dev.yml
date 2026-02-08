@@ -21,11 +21,22 @@ spring:
       properties:
         spring.json.add.type.headers: false
 
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+
+
 app:
   kafka:
     topic:
       friend-request-created: chat.friend.request.created
       friend-request-accepted: chat.friend.request.accepted
+
+  security:
+    token-blacklist-prefix: "bl:"
+    user-invalid-before-prefix: "inv:"
+    user-invalid-before-ttl-days: 30
 
 management:
   endpoints:

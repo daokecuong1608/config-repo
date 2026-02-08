@@ -22,6 +22,8 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
         spring.json.use.type.headers: false
         spring.json.value.default.type: tn.cuongdk.chat.gateway.startermodel.dto.resquest.message_service.MessageCreatedEvent
         spring.json.trusted.packages: "tn.cuongdk.chat.*"
@@ -30,10 +32,24 @@ spring:
     template:
       observation-enabled: true
 
+  mail:
+    host: localhost
+    port: 1025
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
 app:
   kafka:
     topic:
       message-created: chat.message.created
+      password-reset-requested: chat.user.password.reset.requested
+
   redis:
     presence-prefix: "online:"
     active-room-prefix: "active_room:"

@@ -20,3 +20,9 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
+
+
+app:
+  kafka:
+    topic:
+      password-reset-requested: chat.user.password.reset.requested
