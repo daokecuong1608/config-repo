@@ -36,6 +36,7 @@ app:
   kafka:
     topic:
       message-created: chat.message.created
+      message-reaction-updated: chat.message.reaction.updated
 
 eureka:
   client:
