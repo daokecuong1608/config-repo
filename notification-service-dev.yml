@@ -22,10 +22,10 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
-        spring.json.use.type.headers: false
-        spring.json.value.default.type: tn.cuongdk.chat.gateway.startermodel.dto.resquest.message_service.MessageCreatedEvent
+#        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+#        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+#        spring.json.use.type.headers: false
+#        spring.json.value.default.type: tn.cuongdk.chat.gateway.startermodel.dto.resquest.message_service.MessageCreatedEvent
         spring.json.trusted.packages: "tn.cuongdk.chat.*"
     listener:
       observation-enabled: true
