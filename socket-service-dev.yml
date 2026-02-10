@@ -35,7 +35,9 @@ app:
       friend-request-created: chat.friend.request.created
       friend-request-accepted: chat.friend.request.accepted
       dm-room-created: chat.dm.room.created
+      message-reaction-updated: chat.message.reaction.updated
 
+      
   redis:
     presence-prefix: "online:"
     presence-ttl-seconds: 90
