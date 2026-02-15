@@ -34,7 +34,7 @@ spring:
           filters:
             - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
 
-        # ✅ chỉ giữ 1 route presence
+        #  chỉ giữ 1 route presence
         - id: presence-service
           uri: lb://socket-service
           predicates:
