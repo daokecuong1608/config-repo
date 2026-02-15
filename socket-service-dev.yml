@@ -36,6 +36,8 @@ app:
       friend-request-accepted: chat.friend.request.accepted
       dm-room-created: chat.dm.room.created
       message-reaction-updated: chat.message.reaction.updated
+      message-deleted: chat.message.deleted
+      message-restored: chat.message.restored
 
       
   redis:

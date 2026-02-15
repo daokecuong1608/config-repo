@@ -36,6 +36,12 @@ app:
     topic:
       message-created: chat.message.created
       message-reaction-updated: chat.message.reaction.updated
+      message-deleted: chat.message.deleted
+      message-restored: chat.message.restored
+  message:
+    undo-delete-seconds: 10
+  redis:
+    undo-prefix: "undoDelete:"
 
 eureka:
   client:
