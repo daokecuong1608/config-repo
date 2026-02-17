@@ -39,6 +39,7 @@ app:
       message-deleted: chat.message.deleted
       message-restored: chat.message.restored
       task-overdue: chat.task.overdue
+      task-changed: chat.task.changed
 
       
   redis:
