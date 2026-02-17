@@ -1,0 +1,31 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: task-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/chatdb
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+app:
+  scheduler:
+    overdue-check-ms: 60000
+  kafka:
+    topic:
+      task-created: chat.task.created
+      task-updated: chat.task.updated
+      task-overdue: chat.task.overdue
