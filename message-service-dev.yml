@@ -38,10 +38,13 @@ app:
       message-reaction-updated: chat.message.reaction.updated
       message-deleted: chat.message.deleted
       message-restored: chat.message.restored
+      task-overdue: chat.task.overdue
   message:
     undo-delete-seconds: 10
   redis:
     undo-prefix: "undoDelete:"
+  task:
+    overdue-check-ms: 60000
 
 eureka:
   client:
