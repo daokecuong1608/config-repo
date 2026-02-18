@@ -46,6 +46,13 @@ app:
     undo-prefix: "undoDelete:"
   task:
     overdue-check-ms: 60000
+  summary:
+    provider: local
+    max-messages: 120
+    openai:
+      url: https://api.openai.com/v1/chat/completions
+      model: gpt-4o-mini
+      api-key: ${OPENAI_API_KEY:}
 
 eureka:
   client:
