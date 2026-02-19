@@ -47,7 +47,7 @@ app:
   task:
     overdue-check-ms: 60000
   summary:
-    provider: local
+    provider: openai
     max-messages: 120
     openai:
       url: https://api.openai.com/v1/chat/completions
